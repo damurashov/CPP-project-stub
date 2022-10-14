@@ -40,12 +40,13 @@ def files_iter(root):
 
 def file_configure(file_name):
 	try:
-		with open(file_name, 'w') as f:
+		with open(file_name, 'r') as f:
 			content = f.read()
 
 			for k, v in CONFIG_MAP.items():
 				content = content.replace(k, v)
 
+		with open(file_name, 'w') as f:
 			f.write(content)
 	except Exception as e:
 		print(str(e))
