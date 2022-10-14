@@ -20,12 +20,8 @@ CONFIG_MAP = {
 
 
 def dir_filter(dirname):
-	global ARGS
-	path = pathlib.Path(dirname)
-
-	for f in DIR_FILTER + ARGS.ignorepath:
-		if str(f) in str(path):
-			print("Ignoring", path.resolve())
+	for d in DIR_FILTER:
+		if d in dirname:
 			return False
 
 	return True
