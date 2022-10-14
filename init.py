@@ -43,7 +43,7 @@ def file_configure(file_name):
 		with open(file_name, 'w') as f:
 			content = f.read()
 
-			for k, v in CONFIG_MAP:
+			for k, v in CONFIG_MAP.items():
 				content = content.replace(k, v)
 
 			f.write(content)
