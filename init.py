@@ -66,6 +66,8 @@ def main():
 	os.system("git init .")
 	os.system("git add .")
 	os.system("git commit -m Initial")
+	os.chdir("..")
+	os.rename("Cpp-project-stub", project_name())
 
 if __name__ == "__main__":
 	if len(sys.argv) == 1:
