@@ -3,9 +3,11 @@
 import sys
 import os 
 import shutil
+import pathlib
 
 
 HELP = "init.py PROJECT_NAME"
+DIR_FILTER = [".git"]
 
 
 def project_name():
@@ -17,8 +19,23 @@ CONFIG_MAP = {
 }
 
 
+def dir_filter(dirname):
+	global ARGS
+	path = pathlib.Path(dirname)
+
+	for f in DIR_FILTER + ARGS.ignorepath:
+		if str(f) in str(path):
+			print("Ignoring", path.resolve())
+			return False
+
+	return True
+
+
 def files_iter(root):
 	for dirname, subdirs, files in os.walk(root):
+		if not dir_filter(dirname):
+			continue
+
 		for fname in files:
 			path = pathlib.Path(os.path.join(dirname, fname))
 
