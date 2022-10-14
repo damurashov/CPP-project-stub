@@ -44,7 +44,7 @@ def file_configure(file_name):
 			content = f.read()
 
 			for k, v in CONFIG_MAP:
-				content.replace(k, v)
+				content = content.replace(k, v)
 
 			f.write(content)
 	except Exception as e:
