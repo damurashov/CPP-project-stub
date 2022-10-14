@@ -53,6 +53,7 @@ def file_configure(file_name):
 
 
 def main():
+	shutil.rmtree(".git")
 	os.rename("PROJECT_NAME", project_name())
 	os.chdir(project_name())
 	os.rename("PROJECT_NAME", project_name())
@@ -60,6 +61,10 @@ def main():
 
 	for f in files_iter("."):
 		file_configure(f)
+
+	os.system("git init .")
+	os.system("git add .")
+	os.system("git commit -m Initial")
 
 if __name__ == "__main__":
 	if len(sys.argv) == 1:
