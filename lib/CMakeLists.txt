@@ -1,2 +1,1 @@
-set(LIBRARY_NAME @PROJECT_NAME@_3rd_party)
-add_library(${LIBRARY_NAME} INTERFACE)
+add_library(@PROJECT_NAME@_3rd_party INTERFACE)
