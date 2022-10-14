@@ -62,6 +62,7 @@ def main():
 	for f in files_iter("."):
 		file_configure(f)
 
+	os.remove("init.py")
 	os.system("git init .")
 	os.system("git add .")
 	os.system("git commit -m Initial")
